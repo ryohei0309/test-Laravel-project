@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +32,10 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/test', [TestController::class, 'test'])
 ->name('test');
+
+Route::get('post/create', [PostController::class, 'create']);
+
+Route::post('post', [PostController::class, 'store'])
+->name('post.store');
 
 require __DIR__.'/auth.php';
